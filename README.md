@@ -40,10 +40,9 @@ python manage.py runserver
 ```
 5. **Access the app**
 
-For UI -   
-Open frontend/template/register.html on browser
+Access via UI → Redirects to register.html (or the registration page) in frontend/templates/register.html
 
-For API
+Access via API → Redirects to Swagger docs (API documentation)
 
 ## Stripe Integration
 
