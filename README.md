@@ -44,6 +44,31 @@ Access via UI → Redirects to register.html (or the registration page) in front
 
 Access via API → Redirects to Swagger docs (API documentation)
 
+##  Admin Access
+
+This project uses Django's built-in `is_staff` flag to manage admin roles.
+
+> **Note:** To grant a user admin privileges, you need to manually update the user record in the database by setting the `is_staff` field to `True`.
+
+You can do this via:
+
+- **Django Admin Panel** (if enabled):  
+  Log in as a superuser, find the user, and toggle **Staff status**.
+
+- **Django shell:**
+
+Run the following commands:
+```
+python manage.py shell
+```
+
+Then in the shell:
+
+from django.contrib.auth.models import User
+user = User.objects.get(username='username_here')
+user.is_staff = True
+user.save()
+
 ## Stripe Integration
 
 Stripe integration for payment processing is currently under development and will be available in a future update.
