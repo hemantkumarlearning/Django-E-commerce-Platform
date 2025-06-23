@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "store",
     'rest_framework.authtoken',
     "corsheaders",
+    "drf_yasg",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
