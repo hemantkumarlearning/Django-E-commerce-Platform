@@ -6,17 +6,22 @@ from .models import Product,CartItem,Order
 from django.contrib.auth.models import User
 from django.conf import settings
 import stripe
-from rest_framework import generics
+from rest_framework import generics,filters
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny,IsAdminUser
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 stripe.api_key = os.getenv("STRIPE-API-KEY")
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title']
+    
     def get_permissions(self):
         if self.action in ['create', 'update', 'partial_update', 'destroy']:
             return [IsAdminUser()]
@@ -108,3 +113,4 @@ class UserDetailView(APIView):
             'username': user.username,
             'is_staff': user.is_staff,
         })
+    

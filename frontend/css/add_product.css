@@ -34,13 +34,14 @@ nav a:hover {
 
 /* Form styling */
 form {
+    margin: 50px auto;
     margin-bottom: 30px;
     padding: 15px;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 8px;
     max-width: 500px;
-    
+    box-sizing: border-box;
 }
 
 form input[type="text"],
@@ -52,6 +53,7 @@ form input[type="url"] {
     margin-bottom: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 form button {

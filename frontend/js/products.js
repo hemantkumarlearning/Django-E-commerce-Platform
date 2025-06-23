@@ -2,7 +2,7 @@ const API_BASE = 'http://127.0.0.1:8000/api';
 
 document.addEventListener("DOMContentLoaded", () => {
   const productList = document.getElementById("product-list");
-//   const search = document.getElementById("search");
+  // const search = document.getElementById("searchInput");
  
   function fetchProducts() {
   fetch(`${API_BASE}/products/`, {
@@ -69,9 +69,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   fetchProducts();
+
+
+  
+  
 });
 
 function logout() {
     localStorage.removeItem('Token');
     window.location.href = 'login.html';
 }
+
+function searchProducts() {
+    const query = document.getElementById('searchInput').value;
+    const url = `${API_BASE}/products/?search=${encodeURIComponent(query)}`;
+
+    fetch(url, {
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("Token")}`
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      const productList = document.getElementById('product-list');
+      productList.innerHTML = "";
+
+      data.forEach(product => {
+        productList.innerHTML += `
+          <div class="product-card">
+            <img src="${product.image}" alt="${product.title}">
+            <div class="product-details">
+              <h2>${product.title}</h2>
+              <p>${product.description}</p>
+              <p class="price">Price: $${product.price}</p>
+              <p class="stock">${product.stock > 0 ? `Stock: ${product.stock}` : 'Out of Stock'}</p>
+              <div class="actions">
+                <input type="number" id="qty-${product.id}" min="1" max="${product.stock}" value="1" style="width:60px;" ${product.stock <= 0 ? 'disabled' : ''}>
+                <button onclick="addToCart(${product.id})" ${product.stock <= 0 ? 'disabled' : ''}>
+                  ${product.stock <= 0 ? 'Out of Stock' : 'Add to Cart'}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    });
+}
+
+document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        searchProducts();
+    }
+});
