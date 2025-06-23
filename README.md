@@ -64,10 +64,12 @@ python manage.py shell
 
 Then in the shell:
 
+```
 from django.contrib.auth.models import User
 user = User.objects.get(username='username_here')
 user.is_staff = True
 user.save()
+```
 
 ## Stripe Integration
 
