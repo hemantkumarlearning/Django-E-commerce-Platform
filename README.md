@@ -15,8 +15,8 @@ This is a simple e-commerce platform built using Django and Django REST Framewor
 
 1. **Clone the repository**  
    ```
-   git clone https://github.com/yourusername/django-ecommerce.git
-   cd django-ecommerce
+   git clone https://github.com/hemantkumarlearning/Django-E-commerce-Platform.git
+   cd Django-E-commerce-Platform
    ```
    
 2. **Create and activate virtual environment**
@@ -39,8 +39,11 @@ python manage.py migrate
 python manage.py runserver
 ```
 5. **Access the app**
-   
-Open register.html on browser
+
+For UI -   
+Open frontend/template/register.html on browser
+
+For API
 
 ## Stripe Integration
 
