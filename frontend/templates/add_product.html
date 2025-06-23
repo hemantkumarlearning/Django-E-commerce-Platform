@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="../css/add_product.css">
+</head>
+<body>
+    <h2>Add Product</h2>
+    <nav>
+        <a href="admin_dashboard.html">Dashboard</a>
+    </nav>
+    <form id="add-product-form">
+        <input type="hidden" id="product-id">
+        <input type="text" id="product-name" placeholder="Title" required>
+        <input type="text" id="product-description" placeholder="Description" required>
+        <input type="number" id="product-price" placeholder="Price" step="0.01" required>
+        <input type="number" id="product-stock" placeholder="Stock" required>
+        <input type="url" id="product-image" placeholder="Image URL" required>
+        <button type="submit">Add Product</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="product-table-body">
+        </tbody>
+    </table>
+
+    <script src="../js/add_product.js"></script>
+</body>
+</html>
