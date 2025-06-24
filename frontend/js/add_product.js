@@ -138,3 +138,7 @@ async function deleteProduct(id) {
         alert('Error deleting product.');
     }
 }
+function logout() {
+    localStorage.removeItem('Token');
+    window.location.href = 'login.html';
+}
