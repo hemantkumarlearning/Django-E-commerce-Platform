@@ -2,6 +2,9 @@
 
 This is a simple e-commerce platform built using Django and Django REST Framework (DRF). It supports user registration, login, product listing, cart management, and a checkout process. Basic authentication tokens are used for securing the API. Stripe integration for payments is currently in progress.
 
+![Screenshot 2025-06-24 120913](https://github.com/user-attachments/assets/e2289401-d12c-4725-a9d8-1bde3474f0cd)
+
+
 ## Features
 
 - User registration and login with DRF token authentication
@@ -43,8 +46,16 @@ python manage.py runserver
 Access via UI → Redirects to register.html (or the registration page) in frontend/templates/register.html
 
 Access via API → Redirects to Swagger docs (API documentation)
+```
+http://127.0.0.1:8000/api/swagger/
+```
 
 ##  Admin Access
+
+Admin has access to create,update and delete products
+
+![Screenshot 2025-06-24 121034](https://github.com/user-attachments/assets/16b3849f-f925-4509-81a3-419d983aedd8)
+
 
 This project uses Django's built-in `is_staff` flag to manage admin roles.
 
