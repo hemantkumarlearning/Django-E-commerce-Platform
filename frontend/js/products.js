@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
  
   function fetchProducts() {
   fetch(`${API_BASE}/products/`, {
-    headers: {
-      "Authorization": `Token ${localStorage.getItem("Token")}`
-    }
+    // headers: {
+    //   "Authorization": `Token ${localStorage.getItem("Token")}`
+    // }
   })
     .then(res => res.json())
     .then(data => {
@@ -38,6 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
    window.addToCart = function(productId) {
+    const token = localStorage.getItem("Token");
+
+    if (!token) {
+      alert("You must log in to continue.");
+      window.location.href = "login.html";  // redirect to login page
+      return;
+    }
     const quantityInput = document.getElementById(`qty-${productId}`);
     const quantity = parseInt(quantityInput.value);
 
@@ -68,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 
-  fetchProducts();
+fetchProducts();
 
 
   
