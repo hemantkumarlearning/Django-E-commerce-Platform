@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-stripe.api_key = os.getenv("STRIPE-API-KEY")
+stripe.api_key = os.environ.get("STRIPE-API-KEY")
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
