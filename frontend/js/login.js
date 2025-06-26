@@ -1,4 +1,4 @@
-const API_BASE = CONFIG.BASE_URL
+const API_BASE = CONFIG.BASE_URL;
 
 document.getElementById('login-form').addEventListener('submit', async function (e) {
     e.preventDefault();
