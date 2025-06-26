@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!Token) {
     alert("You must be logged in to view your cart.");
-    window.location.href = "/login.html"; 
+    window.location.href = "login.html"; 
     return;
   }
 
